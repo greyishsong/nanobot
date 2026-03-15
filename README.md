@@ -1009,7 +1009,29 @@ Use `toolTimeout` to override the default 30s per-call timeout for slow servers:
 
 MCP tools are automatically discovered and registered on startup. The LLM can use them alongside built-in tools — no extra configuration needed.
 
+### Web Search
 
+The built-in web search tool uses Brave Search API and **is enabled by default** (see the Quick Start section). If you prefer another search provider, disable the built-in web search tool:
+
+```json
+{
+  "tools": {
+    "web": {
+      "search": {
+        "enabled": false
+      }
+    }
+  }
+}
+```
+
+Then add your preferred search engine through MCP/skill. These providers offer official MCP servers:
+
+- [Tavily](https://github.com/tavily-ai/tavily-mcp)
+- [Perplexity](https://docs.perplexity.ai/docs/getting-started/integrations/mcp-server#other-clients)
+- [Exa](https://exa.ai/docs/reference/exa-mcp#other)
+
+Google, SearXNG, DuckDuckGo, and Bing can also be connected via third-party MCP servers or skills.
 
 
 ### Security
