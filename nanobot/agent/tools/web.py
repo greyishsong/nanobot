@@ -48,7 +48,6 @@ class WebSearchTool(Tool):
     """Search the web using Brave Search API."""
 
     name = "web_search"
-    description = "Search the web. Returns titles, URLs, and snippets."
     parameters = {
         "type": "object",
         "properties": {
@@ -62,6 +61,15 @@ class WebSearchTool(Tool):
         self._init_api_key = api_key
         self.max_results = max_results
         self.proxy = proxy
+
+    @property
+    def description(self) -> str:
+        if self.api_key:
+            return "Search the web. Returns titles, URLs, and snippets."
+        return (
+            "Search the web. Currently unavailable because the Brave Search API key is not configured; "
+            "calling this tool returns a setup error."
+        )
 
     @property
     def api_key(self) -> str:

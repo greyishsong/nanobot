@@ -306,6 +306,7 @@ class GatewayConfig(Base):
 class WebSearchConfig(Base):
     """Web search tool configuration."""
 
+    enabled: bool = True
     api_key: str = ""  # Brave Search API key
     max_results: int = 5
 
